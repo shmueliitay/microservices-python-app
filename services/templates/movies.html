@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movies - Cinema Service</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="nav-logo">CINEMA</div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/movies" class="active">Movies</a>
+                <a href="/showtimes">Showtimes</a>
+                <a href="/users">Users</a>
+            </div>
+        </div>
+    </nav>
+    
+    <main>
+        <h1>Movies</h1>
+        <div class="movies-grid">
+            {% for id, movie in movies.items() %}
+            <div class="movie-card">
+                <div class="movie-poster">
+                    <img src="{{ url_for('static', filename='placeholder.jpg') }}" alt="{{ movie.title }}">
+                </div>
+                <div class="movie-info">
+                    <h3>{{ movie.title }}</h3>
+                    <p class="director">Director: {{ movie.director }}</p>
+                    <div class="rating">
+                        <span class="rating-number">{{ movie.rating }}/10</span>
+                        <div class="rating-bar" style="width: {{ movie.rating * 10 }}%"></div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html> 

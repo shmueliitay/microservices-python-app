@@ -19,14 +19,18 @@ run-showtimes:
 run-bookings:
 	python3 -m services.bookings
 
-run-users:
-	python3 -m services.users
+run-user:
+	python3 -m services.user
+
+run-ui:
+	python3 -m services.ui
 
 run-all:
 	python3 -m services.movies & \
 	python3 -m services.showtimes & \
 	python3 -m services.bookings & \
-	python3 -m services.users
+	python3 -m services.user & \
+	python3 -m services.ui
 
 stop-all:
 	pkill -f "python3 -m services"
