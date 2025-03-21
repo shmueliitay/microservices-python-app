@@ -7,6 +7,9 @@ A modern Python microservices example project for a movie theater system. The ba
 * **Booking Service** (port 5003): Booking information
 * **Users Service** (port 5000): User information and movie suggestions
 
+## Architecture Diagram
+![Architecture Diagram](diagram.png)
+
 ## Requirements
 
 * Python 3.x
