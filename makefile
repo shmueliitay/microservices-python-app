@@ -1,5 +1,5 @@
 # Microservices Project Make File
-# author: umer mansoor
+# author: dor-amar
 
 .PHONY: install test run clean
 
