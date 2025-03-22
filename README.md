@@ -94,6 +94,26 @@ curl http://127.0.0.1:5000/users/chris_rivers
 curl http://127.0.0.1:5000/users/chris_rivers/suggested
 ```
 
+### UI Service (Port 5004)
+The UI Service provides a modern web interface to interact with all other services.
+
+#### Features:
+- Service Status Dashboard
+- Movie Catalog with Ratings
+- Interactive Showtime Schedule
+- User Management Interface
+- Booking Management System
+
+#### Endpoints:
+- `GET /` - Dashboard showing all services status
+- `GET /movies` - Browse movie catalog
+- `GET /showtimes` - View movie schedules
+- `GET /users` - User management
+- `GET /bookings/<username>` - View user bookings
+
+#### Screenshots:
+![Dashboard](screenshots/dashboard.png)
+
 ## API Documentation
 
 ### Movie Service
