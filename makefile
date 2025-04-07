@@ -11,7 +11,8 @@ test:
 	python3 -m pytest tests/
 
 run-movies:
-	python3 -m services.movies
+	python3 -m services.movies1
+	python3 -m services.movies2
 
 run-showtimes:
 	python3 -m services.showtimes
@@ -26,11 +27,13 @@ run-ui:
 	python3 -m services.ui
 
 run-all:
-	python3 -m services.movies & \
-	python3 -m services.showtimes & \
+	python3 -m services.movies --port 5001 & \
+	python3 -m services.movies --port 5005 & \
+	python3 -m services.showtimes1 --port 5002 & \
+	python3 -m services.showtimes2 --port 5006 & \
 	python3 -m services.bookings & \
 	python3 -m services.user & \
-	python3 -m services.ui
+	python3 -m services.ui & \
 
 stop-all:
 	pkill -f "python3 -m services"

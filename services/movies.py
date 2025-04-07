@@ -1,3 +1,4 @@
+import multiprocessing
 from typing import Dict, Any
 from pathlib import Path
 import json
@@ -44,15 +45,28 @@ def movie_info(movieid: str) -> Dict[str, Any]:
     result["uri"] = f"/movies/{movieid}"
     return result
 
-@app.route("/movies", methods=['GET'])
+@app.route("/movies/", methods=['GET'])
 def movie_record() -> Dict[str, Any]:
     """Get all movies"""
     return movies
 
+def run_app(port: int) -> None:
+    """Run the Flask application on the given port"""
+    app.run(host="0.0.0.0", port=port, debug=True)
+
+
 def main() -> None:
     """Main entry point for the application"""
-    app.run(host="0.0.0.0", port=5001, debug=True)
+    # Run two instances of the app on different ports
+    processes = []
+    for port in [5001, 5005]:
+        process = multiprocessing.Process(target=run_app, args=(port,))
+        processes.append(process)
+        process.start()
+
+    # Join all processes to keep them running
+    for process in processes:
+        process.join()
 
 if __name__ == "__main__":
     main()
-
