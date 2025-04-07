@@ -26,6 +26,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Run the Flask app in background
+        run: |
+          python services/movies.py &
+          sleep 5  # לתת זמן לאפליקציה לעלות
+
       - name: Run tests
         run: |
           pytest tests/
