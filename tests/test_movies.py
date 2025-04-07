@@ -4,7 +4,7 @@ import requests
 
 class TestMoviesService(unittest.TestCase):
     def setUp(self):
-        self.url = "http://cinema.com:5001/movies"
+        self.url = "https://cinema.com/movies"
 
     def test_all_movie_records(self):
         """ Test /movies/<movieid> for all known movies"""
