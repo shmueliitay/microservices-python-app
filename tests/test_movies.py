@@ -4,13 +4,13 @@ import requests
 
 class TestMoviesService(unittest.TestCase):
     def setUp(self):
-        self.url = "https://cinema.com/movies/"
+        self.url = "http://cinema.com/movies/"
 
     def test_all_movie_records(self):
         """ Test /movies/<movieid> for all known movies"""
         for movieid, expected in GOOD_RESPONSES.items():
             expected['uri'] = "/movies/{}".format(movieid)
-            reply = requests.get("{}/{}".format(self.url, movieid))
+            reply = requests.get("{}/{}".format(self.url, movieid), verify=False)
             actual_reply = reply.json()
             self.assertEqual( set(actual_reply.items()), set(expected.items()))
 
