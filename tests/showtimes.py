@@ -4,7 +4,7 @@ import requests
 
 class TestShowTimesService(unittest.TestCase):
     def setUp(self):
-        self.url = "http://127.0.0.1:5002/showtimes"
+        self.url = "http://5.144.49.3/showtimes"
 
     def test_showtimes_records(self):
         """ Test /showtimes/<date> for all known showtimes"""
