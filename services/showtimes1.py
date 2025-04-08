@@ -56,6 +56,12 @@ def showtimes_list() -> Dict[str, List[str]]:
 	"instance": INSTANCE_ID,
 	"showtimes": showtimes
 }
+####################################
+ # Cache for 30 seconds
+    response.headers['Cache-Control'] = 'public, max-age=30'
+    response.headers['Expires'] = time.strftime('%a, %d %b %Y %H:%M:%S GMT', time.gmtime(time.time() + 30))
+    return response
+#######################################################################################
 def main() -> None:
     """Main entry point for the application"""
     app.run(host="0.0.0.0", port=PORT, debug=True)

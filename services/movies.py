@@ -5,11 +5,7 @@ import json
 from flask import Flask, jsonify
 from werkzeug.exceptions import NotFound
 from services import root_dir, nice_json
-import os
 
-basedir = os.path.dirname(__file__)
-with open(os.path.join(basedir, "database", "movies.json")) as f:
-    movies = json.load(f)
 
 app = Flask(__name__)
 
