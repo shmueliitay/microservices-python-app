@@ -29,7 +29,6 @@ jobs:
       - name: Run the Flask app in background
         run: |
           python services/movies.py &
-          sleep 5
 
       - name: Run tests
         run: |
