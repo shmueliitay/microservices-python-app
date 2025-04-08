@@ -13,7 +13,7 @@ class TestMoviesService(unittest.TestCase):
             "267eedb8-0f5d-42d5-8f43-72426b9fb3e6"
         ]
         for movie_id in ids:
-            res = requests.get(f"{self.url}/{movie_id}")
+            res = requests.get(f"https://cinema.com/movies/{movie_id}", verify=False)
             self.assertEqual(res.status_code, 200)
             data = res.json()
             self.assertEqual(data["id"], movie_id)
