@@ -19,7 +19,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'  # Use the latest Python 3 version
+          python-version: '3.x'
 
       - name: Install dependencies
         run: |
@@ -29,7 +29,7 @@ jobs:
       - name: Run the Flask app in background
         run: |
           python services/movies.py &
-          sleep 5  # לתת זמן לאפליקציה לעלות
+          sleep 5
 
       - name: Run tests
         run: |
